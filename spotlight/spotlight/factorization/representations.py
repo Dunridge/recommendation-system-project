@@ -5,7 +5,7 @@ factorization models.
 
 import torch.nn as nn
 
-from spotlight.layers import ScaledEmbedding, ZeroEmbedding
+from spotlight.spotlight.layers import ScaledEmbedding, ZeroEmbedding
 
 
 class BilinearNet(nn.Module):

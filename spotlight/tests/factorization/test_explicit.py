@@ -3,12 +3,12 @@ import os
 import numpy as np
 import pytest
 
-from spotlight.cross_validation import random_train_test_split
-from spotlight.datasets import movielens
-from spotlight.evaluation import rmse_score
-from spotlight.factorization.explicit import ExplicitFactorizationModel
-from spotlight.factorization.representations import BilinearNet
-from spotlight.layers import BloomEmbedding
+from spotlight.spotlight.cross_validation import random_train_test_split
+from spotlight.spotlight.datasets import movielens
+from spotlight.spotlight.evaluation import rmse_score
+from spotlight.spotlight.factorization.explicit import ExplicitFactorizationModel
+from spotlight.spotlight.factorization.representations import BilinearNet
+from spotlight.spotlight.layers import BloomEmbedding
 
 
 RANDOM_STATE = np.random.RandomState(42)

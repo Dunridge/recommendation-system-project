@@ -11,8 +11,8 @@ import os
 
 import h5py
 
-from spotlight.datasets import _transport
-from spotlight.interactions import Interactions
+from spotlight.spotlight.datasets import _transport
+from spotlight.spotlight.interactions import Interactions
 
 VARIANTS = ('100K',
             '1M',

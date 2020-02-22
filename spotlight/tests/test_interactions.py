@@ -2,9 +2,9 @@ import numpy as np
 
 import pytest
 
-from spotlight.cross_validation import random_train_test_split
-from spotlight.datasets import movielens
-from spotlight.interactions import Interactions
+from spotlight.spotlight.cross_validation import random_train_test_split
+from spotlight.spotlight.datasets import movielens
+from spotlight.spotlight.interactions import Interactions
 
 
 def _test_just_padding(sequences):

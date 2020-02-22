@@ -6,14 +6,14 @@ import numpy as np
 import pytest
 import torch
 
-from spotlight.cross_validation import random_train_test_split
-from spotlight.datasets import movielens
-from spotlight.evaluation import mrr_score, sequence_mrr_score
-from spotlight.evaluation import rmse_score
-from spotlight.factorization.explicit import ExplicitFactorizationModel
-from spotlight.factorization.implicit import ImplicitFactorizationModel
-from spotlight.sequence.implicit import ImplicitSequenceModel
-from spotlight.sequence.representations import CNNNet
+from spotlight.spotlight.cross_validation import random_train_test_split
+from spotlight.spotlight.datasets import movielens
+from spotlight.spotlight.evaluation import mrr_score, sequence_mrr_score
+from spotlight.spotlight.evaluation import rmse_score
+from spotlight.spotlight.factorization.explicit import ExplicitFactorizationModel
+from spotlight.spotlight.factorization.implicit import ImplicitFactorizationModel
+from spotlight.spotlight.sequence.implicit import ImplicitSequenceModel
+from spotlight.spotlight.sequence.representations import CNNNet
 
 
 RANDOM_STATE = np.random.RandomState(42)

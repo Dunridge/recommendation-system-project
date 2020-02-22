@@ -9,17 +9,17 @@ import torch
 
 import torch.optim as optim
 
-from spotlight.helpers import _repr_model
-from spotlight.losses import (adaptive_hinge_loss,
+from spotlight.spotlight.helpers import _repr_model
+from spotlight.spotlight.losses import (adaptive_hinge_loss,
                               bpr_loss,
                               hinge_loss,
                               pointwise_loss)
-from spotlight.sequence.representations import (PADDING_IDX, CNNNet,
+from spotlight.spotlight.sequence.representations import (PADDING_IDX, CNNNet,
                                                 LSTMNet,
                                                 MixtureLSTMNet,
                                                 PoolNet)
-from spotlight.sampling import sample_items
-from spotlight.torch_utils import cpu, gpu, minibatch, set_seed, shuffle
+from spotlight.spotlight.sampling import sample_items
+from spotlight.spotlight.torch_utils import cpu, gpu, minibatch, set_seed, shuffle
 
 
 class ImplicitSequenceModel(object):

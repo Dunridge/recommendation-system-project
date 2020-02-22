@@ -4,9 +4,9 @@ import numpy as np
 
 import pytest
 
-from spotlight.datasets import movielens
-from spotlight.factorization.explicit import ExplicitFactorizationModel
-from spotlight.factorization.implicit import ImplicitFactorizationModel
+from spotlight.spotlight.datasets import movielens
+from spotlight.spotlight.factorization.explicit import ExplicitFactorizationModel
+from spotlight.spotlight.factorization.implicit import ImplicitFactorizationModel
 
 
 CUDA = bool(os.environ.get('SPOTLIGHT_CUDA', False))

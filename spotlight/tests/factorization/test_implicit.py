@@ -4,12 +4,12 @@ import numpy as np
 import pytest
 import torch
 
-from spotlight.cross_validation import random_train_test_split
-from spotlight.datasets import movielens
-from spotlight.evaluation import mrr_score
-from spotlight.factorization.implicit import ImplicitFactorizationModel
-from spotlight.factorization.representations import BilinearNet
-from spotlight.layers import BloomEmbedding
+from spotlight.spotlight.cross_validation import random_train_test_split
+from spotlight.spotlight.datasets import movielens
+from spotlight.spotlight.evaluation import mrr_score
+from spotlight.spotlight.factorization.implicit import ImplicitFactorizationModel
+from spotlight.spotlight.factorization.representations import BilinearNet
+from spotlight.spotlight.layers import BloomEmbedding
 
 RANDOM_STATE = np.random.RandomState(42)
 CUDA = bool(os.environ.get('SPOTLIGHT_CUDA', False))

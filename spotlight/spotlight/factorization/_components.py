@@ -2,7 +2,7 @@ import numpy as np
 
 import torch
 
-from spotlight.torch_utils import gpu
+from spotlight.spotlight.torch_utils import gpu
 
 
 def _predict_process_ids(user_ids, item_ids, num_items, use_cuda):

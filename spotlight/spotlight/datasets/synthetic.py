@@ -6,7 +6,7 @@ experimentation.
 
 import numpy as np
 
-from spotlight.interactions import Interactions
+from spotlight.spotlight.interactions import Interactions
 
 
 def _build_transition_matrix(num_items,

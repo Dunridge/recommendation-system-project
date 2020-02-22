@@ -8,7 +8,8 @@ import matplotlib.pyplot as plt
 
 import seaborn as sns
 
-from example import Results
+# TODO: solve this error --> find the library
+# from example import Results
 
 
 def process_results(results, verbose=False):
@@ -101,6 +102,9 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
+'''
+# TODO: solve this error --> find the library
     plot_results(args.model,
                  Results('movielens_{}_results.txt'.format(args.model)),
                  Results('amazon_{}_results.txt'.format(args.model)))
+'''

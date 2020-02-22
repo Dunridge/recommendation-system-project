@@ -12,7 +12,7 @@ import torch
 
 import torch.nn.functional as F
 
-from spotlight.torch_utils import assert_no_grad
+from spotlight.spotlight.torch_utils import assert_no_grad
 
 
 def pointwise_loss(positive_predictions, negative_predictions, mask=None):

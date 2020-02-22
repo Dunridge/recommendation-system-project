@@ -6,7 +6,7 @@ import numpy as np
 
 from sklearn.utils import murmurhash3_32
 
-from spotlight.interactions import Interactions
+from spotlight.spotlight.interactions import Interactions
 
 
 def _index_or_none(array, shuffle_index):

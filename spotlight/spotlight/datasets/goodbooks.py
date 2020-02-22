@@ -11,8 +11,8 @@ import h5py
 
 import numpy as np
 
-from spotlight.datasets import _transport
-from spotlight.interactions import Interactions
+from spotlight.spotlight.datasets import _transport
+from spotlight.spotlight.interactions import Interactions
 
 
 def _get_dataset():

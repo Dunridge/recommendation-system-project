@@ -6,13 +6,13 @@ import numpy as np
 
 import torch
 
-from spotlight.layers import BloomEmbedding, ScaledEmbedding
-from spotlight.factorization.implicit import ImplicitFactorizationModel
-from spotlight.factorization.representations import BilinearNet
-from spotlight.sequence.implicit import ImplicitSequenceModel
-from spotlight.sequence.representations import LSTMNet
+from spotlight.spotlight.layers import BloomEmbedding, ScaledEmbedding
+from spotlight.spotlight.factorization.implicit import ImplicitFactorizationModel
+from spotlight.spotlight.factorization.representations import BilinearNet
+from spotlight.spotlight.sequence.implicit import ImplicitSequenceModel
+from spotlight.spotlight.sequence.representations import LSTMNet
 
-from spotlight.datasets.movielens import get_movielens_dataset
+from spotlight.spotlight.datasets.movielens import get_movielens_dataset
 
 
 CUDA = torch.cuda.is_available()

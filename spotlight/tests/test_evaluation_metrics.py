@@ -4,11 +4,11 @@ import numpy as np
 
 import pytest
 
-from spotlight.evaluation import precision_recall_score, sequence_precision_recall_score
-from spotlight.cross_validation import random_train_test_split, user_based_train_test_split
-from spotlight.datasets import movielens
-from spotlight.factorization.implicit import ImplicitFactorizationModel
-from spotlight.sequence.implicit import ImplicitSequenceModel
+from spotlight.spotlight.evaluation import precision_recall_score, sequence_precision_recall_score
+from spotlight.spotlight.cross_validation import random_train_test_split, user_based_train_test_split
+from spotlight.spotlight.datasets import movielens
+from spotlight.spotlight.factorization.implicit import ImplicitFactorizationModel
+from spotlight.spotlight.sequence.implicit import ImplicitSequenceModel
 
 RANDOM_STATE = np.random.RandomState(42)
 CUDA = bool(os.environ.get('SPOTLIGHT_CUDA', False))

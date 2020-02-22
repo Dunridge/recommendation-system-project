@@ -4,12 +4,12 @@ import numpy as np
 
 import pytest
 
-from spotlight.cross_validation import user_based_train_test_split
-from spotlight.datasets import synthetic
-from spotlight.evaluation import sequence_mrr_score
-from spotlight.layers import BloomEmbedding
-from spotlight.sequence.implicit import ImplicitSequenceModel
-from spotlight.sequence.representations import CNNNet, LSTMNet, PoolNet
+from spotlight.spotlight.cross_validation import user_based_train_test_split
+from spotlight.spotlight.datasets import synthetic
+from spotlight.spotlight.evaluation import sequence_mrr_score
+from spotlight.spotlight.layers import BloomEmbedding
+from spotlight.spotlight.sequence.implicit import ImplicitSequenceModel
+from spotlight.spotlight.sequence.representations import CNNNet, LSTMNet, PoolNet
 
 
 RANDOM_SEED = 42

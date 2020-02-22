@@ -4,7 +4,7 @@ import torch
 
 import torch.nn as nn
 
-from spotlight.layers import BloomEmbedding, ScaledEmbedding
+from spotlight.spotlight.layers import BloomEmbedding, ScaledEmbedding
 
 
 @pytest.mark.parametrize('embedding_class', [

@@ -9,7 +9,7 @@ from torch.backends import cudnn
 import torch.nn as nn
 import torch.nn.functional as F
 
-from spotlight.layers import ScaledEmbedding, ZeroEmbedding
+from spotlight.spotlight.layers import ScaledEmbedding, ZeroEmbedding
 
 
 PADDING_IDX = 0

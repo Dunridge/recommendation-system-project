@@ -1,4 +1,4 @@
-from spotlight.datasets import movielens
+from spotlight.spotlight.datasets import movielens
 
 
 def test_dataset_downloading():

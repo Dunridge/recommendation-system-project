@@ -8,14 +8,14 @@ import torch
 
 import torch.optim as optim
 
-from spotlight.helpers import _repr_model
-from spotlight.factorization._components import _predict_process_ids
-from spotlight.factorization.representations import BilinearNet
-from spotlight.losses import (poisson_loss,
+from spotlight.spotlight.helpers import _repr_model
+from spotlight.spotlight.factorization._components import _predict_process_ids
+from spotlight.spotlight.factorization.representations import BilinearNet
+from spotlight.spotlight.losses import (poisson_loss,
                               regression_loss,
                               logistic_loss)
 
-from spotlight.torch_utils import cpu, gpu, minibatch, set_seed, shuffle
+from spotlight.spotlight.torch_utils import cpu, gpu, minibatch, set_seed, shuffle
 
 
 class ExplicitFactorizationModel(object):

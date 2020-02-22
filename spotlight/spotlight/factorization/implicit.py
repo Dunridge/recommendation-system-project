@@ -8,15 +8,15 @@ import torch
 
 import torch.optim as optim
 
-from spotlight.helpers import _repr_model
-from spotlight.factorization._components import _predict_process_ids
-from spotlight.losses import (adaptive_hinge_loss,
-                              bpr_loss,
-                              hinge_loss,
-                              pointwise_loss)
-from spotlight.factorization.representations import BilinearNet
-from spotlight.sampling import sample_items
-from spotlight.torch_utils import cpu, gpu, minibatch, set_seed, shuffle
+from spotlight.spotlight.helpers import _repr_model
+from spotlight.spotlight.factorization._components import _predict_process_ids
+from spotlight.spotlight.losses import (adaptive_hinge_loss,
+                                        bpr_loss,
+                                        hinge_loss,
+                                        pointwise_loss)
+from spotlight.spotlight.factorization.representations import BilinearNet
+from spotlight.spotlight.sampling import sample_items
+from spotlight.spotlight.torch_utils import cpu, gpu, minibatch, set_seed, shuffle
 
 
 class ImplicitFactorizationModel(object):

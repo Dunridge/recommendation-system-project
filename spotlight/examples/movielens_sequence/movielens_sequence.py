@@ -8,11 +8,11 @@ import numpy as np
 
 from sklearn.model_selection import ParameterSampler
 
-from spotlight.datasets.movielens import get_movielens_dataset
-from spotlight.cross_validation import user_based_train_test_split
-from spotlight.sequence.implicit import ImplicitSequenceModel
-from spotlight.sequence.representations import CNNNet
-from spotlight.evaluation import sequence_mrr_score
+from spotlight.spotlight.datasets.movielens import get_movielens_dataset
+from spotlight.spotlight.cross_validation import user_based_train_test_split
+from spotlight.spotlight.sequence.implicit import ImplicitSequenceModel
+from spotlight.spotlight.sequence.representations import CNNNet
+from spotlight.spotlight.evaluation import sequence_mrr_score
 
 
 CUDA = (os.environ.get('CUDA') is not None or
