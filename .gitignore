@@ -28,3 +28,24 @@ target
 out
 venv
 *.iml
+
+*~
+*#*
+
+#compiled python
+*.pyc
+
+# cache files
+*.cache
+.pytest_cache
+**/.ipynb_checkpoints/*
+
+# packaging
+*egg*
+*build*
+
+# OS
+.DS_Store
+
+# IDE
+tags
