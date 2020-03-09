@@ -27,6 +27,8 @@ EMBEDDING_DIM = [8, 16, 32, 64, 128, 256]
 N_ITER = list(range(5, 20))
 L2 = [1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 0.0]
 
+#best_res_string = 'Best {} result: {}'
+
 
 class Results:
 
@@ -231,7 +233,11 @@ def evaluate_pooling_model(hyperparameters, train, test, validation, random_stat
     return test_mrr, val_mrr
 
 
-def run(train, test, validation, ranomd_state, model_type):
+def get_best_result(best_res_str):
+    return best_res_str
+
+
+def run(train, test, validation, random_state, model_type):
 
     results = Results('{}_results.txt'.format(model_type))
 
@@ -249,8 +255,15 @@ def run(train, test, validation, ranomd_state, model_type):
     else:
         raise ValueError('Unknown model type')
 
+    best_res_string = 'Best {} result: {}'
+    # TODO: define best_res_string globally
     if best_result is not None:
-        print('Best {} result: {}'.format(model_type, results.best()))
+        best_res_string = 'Best {} result: {}'.format(model_type, results.best())
+        # get_best_result(best_res_string)
+        # print(best_res_string)
+        #print('Best {} result: {}'.format(model_type, results.best()))
+        # TODO: fetch the results from here
+        # TODO: see how you were fetching the results here and on the FE part
 
     for hyperparameters in sample_fnc(random_state, NUM_SAMPLES):
 
@@ -271,36 +284,95 @@ def run(train, test, validation, ranomd_state, model_type):
 
         results.save(hyperparameters, test_mrr.mean(), val_mrr.mean())
 
-    return results
+    res_dict = {"results": results, "best_res_string": best_res_string}
+    # return results, best_res_string # was
+    return best_res_string
+    #return res_dict # was
 
 
-if __name__ == '__main__':
 
+# if __name__ == '__main__':
+
+    # max_sequence_length = 200
+    # min_sequence_length = 20
+    # step_size = 200
+    # random_state = np.random.RandomState(100) #TODO: make solution global
+    #
+    # dataset = get_movielens_dataset('1M')
+    #
+    # train, rest = user_based_train_test_split(dataset,
+    #                                           random_state=random_state)
+    # test, validation = user_based_train_test_split(rest,
+    #                                                test_percentage=0.5,
+    #                                                random_state=random_state)
+    # train = train.to_sequence(max_sequence_length=max_sequence_length,
+    #                           min_sequence_length=min_sequence_length,
+    #                           step_size=step_size)
+    # test = test.to_sequence(max_sequence_length=max_sequence_length,
+    #                         min_sequence_length=min_sequence_length,
+    #                         step_size=step_size)
+    # validation = validation.to_sequence(max_sequence_length=max_sequence_length,
+    #                                     min_sequence_length=min_sequence_length,
+    #                                     step_size=step_size)
+    #
+    # # mode = sys.argv[1] # was
+    # mode = "lstm" # is
+    # # TODO: see how to interpret the results --> you can just print out the results and later on see how to interpret them
+    # #results = Results()
+    # #best_results = {"results": results, "best_res_string":'best_results'}
+    # best_results = run(train, test, validation, random_state, mode) # it saw the files with the results and prints the best one
+    #
+    # #print("Best results from main: {}".format(best_results["best_res_string"]))
+    # best_res_string = best_results["best_res_string"]
+    # print(best_res_string) # TODO: now figure out how to pass this to the frontend
+    #
+    # # TODO: pass the .txt files with the results as well as the best result
+    # #results.best()
+    # #results.save()
+
+
+
+
+    # testing a function (...) --> it doesn't want to be passed to the rec_system_back.py file
+def run_lstm_model():
     max_sequence_length = 200
     min_sequence_length = 20
     step_size = 200
-    random_state = np.random.RandomState(100)
+    random_state = np.random.RandomState(100) #TODO: the IDE tells you that it can't see the random_state variable
 
     dataset = get_movielens_dataset('1M')
 
     train, rest = user_based_train_test_split(dataset,
-                                              random_state=random_state)
+                                                  random_state=random_state)
     test, validation = user_based_train_test_split(rest,
-                                                   test_percentage=0.5,
-                                                   random_state=random_state)
+                                                       test_percentage=0.5,
+                                                       random_state=random_state)
     train = train.to_sequence(max_sequence_length=max_sequence_length,
-                              min_sequence_length=min_sequence_length,
-                              step_size=step_size)
+                                  min_sequence_length=min_sequence_length,
+                                  step_size=step_size)
     test = test.to_sequence(max_sequence_length=max_sequence_length,
-                            min_sequence_length=min_sequence_length,
-                            step_size=step_size)
+                                min_sequence_length=min_sequence_length,
+                                step_size=step_size)
     validation = validation.to_sequence(max_sequence_length=max_sequence_length,
-                                        min_sequence_length=min_sequence_length,
-                                        step_size=step_size)
+                                            min_sequence_length=min_sequence_length,
+                                            step_size=step_size)
 
     # mode = sys.argv[1] # was
-    mode = "lstm" # is
+    mode = "lstm"  # is
+    # TODO: see how to interpret the results --> you can just print out the results and later on see how to interpret them
+    # results = Results()
+    # best_results = {"results": results, "best_res_string":'best_results'}
+    best_results = run(train, test, validation, random_state,
+                           mode)  # it saw the files with the results and prints the best one
 
-    run(train, test, validation, random_state, mode)
-    #results.best()
-    #results.save()
+    # print("Best results from main: {}".format(best_results["best_res_string"]))
+    print(best_results)  # TODO: now figure out how to pass this to the frontend
+
+
+    # TODO: pass the .txt files with the results as well as the best result
+    # results.best()
+    # results.save()
+    return best_results
+
+
+# run_lstm_model()
