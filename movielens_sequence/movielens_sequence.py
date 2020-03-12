@@ -330,11 +330,22 @@ def run(train, test, validation, random_state, model_type):
     # #results.best()
     # #results.save()
 
-
+def is_file_empty(file_name):
+    with open(file_name, 'r') as read_obj:
+        one_char = read_obj.read(1)
+        if not one_char:
+            return True
+    return False
 
 
     # testing a function (...) --> it doesn't want to be passed to the rec_system_back.py file
 def run_lstm_model():
+    if not is_file_empty("lstm_results.txt"):
+        with open("lstm_results.txt", "r") as lstm_results:
+            result_data = lstm_results.readlines()
+            result_data_string = '; '.join(result_data)
+        return result_data_string
+
     max_sequence_length = 200
     min_sequence_length = 20
     step_size = 200
