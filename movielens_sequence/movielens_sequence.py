@@ -259,11 +259,7 @@ def run(train, test, validation, random_state, model_type):
     # TODO: define best_res_string globally
     if best_result is not None:
         best_res_string = 'Best {} result: {}'.format(model_type, results.best())
-        # get_best_result(best_res_string)
-        # print(best_res_string)
-        #print('Best {} result: {}'.format(model_type, results.best()))
-        # TODO: fetch the results from here
-        # TODO: see how you were fetching the results here and on the FE part
+
 
     for hyperparameters in sample_fnc(random_state, NUM_SAMPLES):
 
@@ -290,46 +286,6 @@ def run(train, test, validation, random_state, model_type):
     #return res_dict # was
 
 
-
-# if __name__ == '__main__':
-
-    # max_sequence_length = 200
-    # min_sequence_length = 20
-    # step_size = 200
-    # random_state = np.random.RandomState(100) #TODO: make solution global
-    #
-    # dataset = get_movielens_dataset('1M')
-    #
-    # train, rest = user_based_train_test_split(dataset,
-    #                                           random_state=random_state)
-    # test, validation = user_based_train_test_split(rest,
-    #                                                test_percentage=0.5,
-    #                                                random_state=random_state)
-    # train = train.to_sequence(max_sequence_length=max_sequence_length,
-    #                           min_sequence_length=min_sequence_length,
-    #                           step_size=step_size)
-    # test = test.to_sequence(max_sequence_length=max_sequence_length,
-    #                         min_sequence_length=min_sequence_length,
-    #                         step_size=step_size)
-    # validation = validation.to_sequence(max_sequence_length=max_sequence_length,
-    #                                     min_sequence_length=min_sequence_length,
-    #                                     step_size=step_size)
-    #
-    # # mode = sys.argv[1] # was
-    # mode = "lstm" # is
-    # # TODO: see how to interpret the results --> you can just print out the results and later on see how to interpret them
-    # #results = Results()
-    # #best_results = {"results": results, "best_res_string":'best_results'}
-    # best_results = run(train, test, validation, random_state, mode) # it saw the files with the results and prints the best one
-    #
-    # #print("Best results from main: {}".format(best_results["best_res_string"]))
-    # best_res_string = best_results["best_res_string"]
-    # print(best_res_string) # TODO: now figure out how to pass this to the frontend
-    #
-    # # TODO: pass the .txt files with the results as well as the best result
-    # #results.best()
-    # #results.save()
-
 def is_file_empty(file_name):
     with open(file_name, 'r') as read_obj:
         one_char = read_obj.read(1)
@@ -343,13 +299,14 @@ def run_lstm_model():
     if not is_file_empty("lstm_results.txt"):
         with open("lstm_results.txt", "r") as lstm_results:
             result_data = lstm_results.readlines()
-            result_data_string = '; '.join(result_data)
-        return result_data_string
+            # result_data_string = '; '.join(result_data)
+        return result_data
+        # was return result_data_string
 
     max_sequence_length = 200
     min_sequence_length = 20
     step_size = 200
-    random_state = np.random.RandomState(100) #TODO: the IDE tells you that it can't see the random_state variable
+    random_state = np.random.RandomState(100)
 
     dataset = get_movielens_dataset('1M')
 
